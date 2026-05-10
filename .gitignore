@@ -22,6 +22,7 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
 
 # debug
@@ -29,9 +30,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
-.env*
+# ----- ENV / SECRETS (อันตราย — ห้ามอัปขึ้น git) -----
+# มีทั้ง DATABASE_URL, MAIL_PASS, MAIL_USER ฯลฯ
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +44,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prisma generated client (regen ได้จาก schema)
+/app/generated/prisma
+/prisma/migrations/dev.db*
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+ehthumbs.db
+
+# Local backups
+*.bak
+*.old
